@@ -6,7 +6,7 @@ include_once "../controller/loadpagecontroller.php";
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Sent </title>
+	<title>Sent Messeges </title>
 </head>
 <body>
 
