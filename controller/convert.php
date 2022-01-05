@@ -13,6 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		echo json_encode( $data );	
 		exit;
 	}
+	echo "jsd";
 	$converted_currency=currencyConverter($from_currency, $to_currency, $amount);
 	$z=returnthis($from_currency, $to_currency, $amount);
 	echo $converted_currency;
