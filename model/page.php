@@ -24,7 +24,7 @@ class page
  	 	$this->linkadress=$row["linkadress"];
  	 	$this->html=$row["html"];
  	 	$this->lang=$row["langid"];
- 	 	echo ( $this->html ."<br>");
+ 	 
 
  	 	
  	 }
@@ -32,10 +32,12 @@ class page
 
 	}
 }
-	function returnlink()
+	function echohtml($x)
 	{
-		return $this->pageid;
+			
+			echo  $x->html ;
 	}
+
 	function returnlang()
 	{
 		return $this->lang;

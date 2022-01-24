@@ -1,28 +1,75 @@
-<html>
 
+<?php
+session_start();
+include_once '../model/proxy.php';
+include_once "../model/page.php";
+if(isset($_SESSION['usertype']))
+{
+    $x=new proxycheck();
+    $y=$x->check($_SESSION['usertype'],13);
+if($y==1)
+{//include_once "../controller/loadpagecontroller.php";
+    $x=new page(13);
+
+$x->echohtml($x);
+}   
+else
+{  echo"you dont have permission to this page";
+header("Location:error.php");
+
+}
+
+
+}
+ else   
+{
+    echo "you are not logged in";
+    header("Location:error.php");
+}
+?>
+<html>
 <head>
  
-  <title>Sign in</title>
+  <title>Send Greetings</title>
 </head>
 
 <body>
    <div class="main">
-    <p class="sign" align="center">Sign in</p>
-    <form action="controller.php" method="post">
+    <p class="sign" align="center">Events</p>
+    <em>Leave id empty if you want to send to all employees</em>
+    <form action="../controller/managercontroller.php" method="post">
    <div class="form-group ">
+
          
-              <span class="help-block"><?php echo $address_err; ?></span>
+              <span class="help-block">
+                  
+              </span>
                 </div>
-               <div class="form-group <?php echo (!empty($salary_err)) ? 'has-error' : ''; ?>">
-                              
-                                                    
-         <input class="Submit" type="submit" value ="Firstname" >  
-         <input class="Submit" type="submit" vlaue="lastname" >
-         <input class="Submit" type="submit" vlaue="submit" >
-         <input class="Submit" type="submit" value="submit" >
+               <div class="form-group ">
+             
+             <div class="un">
+           
+          
+                     <label for="Category">Choose an Event</label>
+
+    <select name="cars" id="cars">
+    
+    <?php
+    include_once "../controller/greetingscontroller.php";
+     ?>
+        </select> 
+           
+              </div>               
+             
+                <div class="pass">
+                  <input class="pass" type="text" id ="pass" name="pass" align="center" placeholder="id">
+                               
+                 </div>                                        
+         <input class="Submit" type="submit" value="send" >
       </div>
                       
-   </form>
+   </form>  
+ 
 
      
 </body>
@@ -30,14 +77,14 @@
 </html>
 <style >
     body {
-        background-color: #F3EBF6;
+        background-color: #F3EBF6;    
         font-family: 'Ubuntu', sans-serif;
     }
     
     .main {
         background-color: #FFFFFF;
         width: 400px;
-        height: 400px;
+        height: 800px;
         margin: 7em auto;
         border-radius: 1.5em;
         box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
@@ -45,7 +92,7 @@
     
     .sign {
         padding-top: 40px;
-        color: #8C55AA;
+        color: #8C55AA; 
         font-family: 'Ubuntu', sans-serif;
         font-weight: bold;
         font-size: 23px;
@@ -130,3 +177,8 @@
             border-radius: 0px;
         }
 </style>
+
+
+
+
+

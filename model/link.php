@@ -3,8 +3,9 @@
 class link
 { 	public $id;
 	public $type;
-	function __construct($id)
-	{if(!$id=="")
+	function __construct()
+	{/*
+		if(!$id=="")
 		{
 			$con = mysqli_connect("localhost", "root", "","orphnew");
 	if (!$con)
@@ -14,11 +15,9 @@ class link
  	 else
  	 {$sql="select *from usertypepages  where usertypeid='$id'";
  	 $dataset = mysqli_query($con,$sql) or die(mysqli_error);
- 	 if($row = mysqli_fetch_array($dataset))
+ 	 if($dataset))
  	 {
- 	 	$this->id=$row["id"];
- 	 	$this->usertypeid=$row["usertypeid"];
- 	 	$this->pageid=$row["pageid"];
+ 	 	return $dataset ; 
  	 	
 
  	 	
@@ -26,6 +25,27 @@ class link
  	}
 
 	}
+	*/
+}
+function returnalllinks($id)
+{if(!$id=="")
+		{
+			$con = mysqli_connect("localhost", "root", "","orphnew");
+	if (!$con)
+  	{
+ 	 die('Could not connect: ' . mysqli_error());
+ 	 }
+ 	 else
+ 	 {$sql="SELECT * FROM usertypepages where usertypeid ='$id'";
+ 	   if ($result = mysqli_query($con, $sql)) {
+          ////  echo "yeslad";
+       ////    echo $result;
+            return $result;
+        }
+ 	}
+
+	}
+
 }
 	function returnlink()
 	{

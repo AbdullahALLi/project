@@ -6,7 +6,7 @@ class adress extends user
 	public $id;
 	public $name;
 	public $parentid;
-	function __construct($id)
+	function adresss($id)
 	{if(!$id=="")
 		{
 			$con = mysqli_connect("localhost", "root", "","orphnew");
@@ -29,6 +29,20 @@ class adress extends user
 
 	}
 }
+function returnoptions()
+
+	{
+		$con = mysqli_connect("localhost", "root", "","orphnew");
+	if (!$con)
+  	{
+ 	 die('Could not connect: ' . mysqli_error());
+ 	 }
+ 	 $sql="SELECT * FROM adress ";
+ 	   if ($result = mysqli_query($con, $sql)) {
+     
+            return $result;
+        }
+    }
 	function findadress($id){
 	
 		$con = mysqli_connect("localhost", "root", "","orphnew");

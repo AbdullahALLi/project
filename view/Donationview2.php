@@ -1,3 +1,34 @@
+<?php 
+session_start();
+include_once "../model/page.php";
+include_once '../model/proxy.php';
+
+if(isset($_SESSION['usertype']))
+{
+    $x=new proxycheck();
+    $y=$x->check($_SESSION['usertype'],19);
+if($y==1)
+{//include_once "../controller/loadpagecontroller.php";
+  //  $x=new page(19);
+
+///$x->echohtml($x);
+}   
+else
+{  echo"you dont have permission to this page";
+header("Location:error.php");
+
+}
+
+
+}
+ else   
+{
+    echo "you are not logged in";
+    header("Location:error.php");
+}
+
+?>
+
 <html>
 
 <head>
@@ -21,13 +52,12 @@
               <div class="un">
            
           
-                     <label for="Category">Choose a Category</label>
+     <label for="Category">Choose a Category</label>
 
     <select name="cars" id="cars">
-     <option value="2">Tshirt</option>
-     <option value="4">Money</option>
-    <option value="3">Socks</option>
-    <option value="8">Books</option>
+      <?php
+    include_once "../controller/usertcontroller.php";
+     ?>
         </select> 
            
               </div>            

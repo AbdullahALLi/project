@@ -1,7 +1,10 @@
 <?php
-interface observer
+abstract class observer
 {
-	 function update($y);
+	 public function updateall($y)
+	 {}
+	 public function updateone($y,$x)
+	 {}
 }
 
 

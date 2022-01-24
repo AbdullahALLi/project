@@ -26,8 +26,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $z=$y->returnid();
 
     $x = new Donationdetails();
-    $x->InsertDonation($qty,$cat,$z);
-    header("../view/invoice.php");
+    $x->InsertDonation($qty,$cat,$z,1);
+    header("Location:../view/invoice.php");
 
      }
        else

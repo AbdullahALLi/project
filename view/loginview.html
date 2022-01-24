@@ -1,43 +1,51 @@
+<?php
+?>
 <html>
 
 <head>
  
-  <title>Donations</title>
+  <title>Sign in</title>
 </head>
 
 <body>
    <div class="main">
-    <p class="sign" align="center">Events</p>
-    <form action="../controller/managercontroller.php" method="post">
+    <p class="sign" align="center">Sign in</p>
+    <form action="controller/logincontroller.php" method="post">
    <div class="form-group ">
-         
-              <span class="help-block"></span>
-                </div>
-               <div class="form-group ">
-             
-             <div class="un">
-           
-          
-                     <label for="Category">Choose an Event</label>
-
-    <select name="cars" id="cars">
-     <option value="3">Christmas</option>
-     <option value="1">Ramadan</option>
-    <option value="2">Harvest</option>
-    
-        </select> 
-           
-              </div>               
-             
+                               <div class="un">
+                       <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" maxlength="8"   class="un " name="username" type="text" align="center" placeholder="UserID">
+                                </div>
+                                
+                            </div>
+                       
+                              
+                              <div class="pass">
+                               <input class="pass" type="password" name="password" align="center" placeholder="Password">
+                               
+                            </div>
                                                        
-         <input class="Submit" type="submit" value="send" >
-      </div>
-                      
-   </form>
-   <div style="margin:50px 120px 20px 140px;">
-        <a href="/controller/commandcontroller2.php"><button> Change Availability</button></a>        
+                             <input class="Submit" type="submit" name="submit" value="Login" >  
+                            </div>
+                       
+                        </form>
 
-    </div> 
+   
+                              
+                       <div style="margin:50px 120px 20px 140px;">
+         <form action="controller/registercontroller.php" method="post">  
+         	 <input class="Submit" type="submit" name="submit" value="Register" > 
+
+          </form>       
+
+    </div>      
+                                
+                                
+
+                            
+                              
+                              
+                          
+                           
 
      
 </body>
@@ -52,7 +60,7 @@
     .main {
         background-color: #FFFFFF;
         width: 400px;
-        height: 800px;
+        height: 400px;
         margin: 7em auto;
         border-radius: 1.5em;
         box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);

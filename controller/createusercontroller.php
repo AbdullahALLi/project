@@ -41,18 +41,23 @@ $phonenumber= trim($_POST["Phonenumber"]);
 
     } 
         $usertypid = trim($_POST["cars"]);
+        $adress = trim($_POST["cars2"]);
+        $date = trim($_POST["date"]);
   
      if (empty($username_err) && empty($password_err) && empty($salary_err) && empty($email_err) && empty($phone_err)
       && empty($lastnname_err)) {
       	
     	include_once "../model/adduser.php";
+    include_once "../model/staffclass.php";
+    $pass= new hashpassword();
+   $p22= $pass->hashpasswords($password);
     $y = new AddUser;
-    $y->InsertUser($password,$name,$lastname,$phonenumber,$email,$usertypid,$salary);
+    $y->InsertUser($p22,$name,$lastname,$phonenumber,$email,$usertypid,$salary,$adress,$date);
     
 
        }
        else
-       {echo "something went wrong";
+       {echo "Error";
 
        }
     }

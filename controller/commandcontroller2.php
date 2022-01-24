@@ -1,29 +1,20 @@
 <?php
+session_start();
 include_once "../model/CommandPattern.php";
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-$value=trim($_POST["cars2"]);
-if(empty($value))
-{}
+//echo $_SESSION['userid'];
+$x = new AvailabilityControl();
+//echo "yes";
+$y=$x->checkavailablity($_SESSION['userid']);
+if($y==0)
+{
+	$z= new AvailableNow($x,$_SESSION['userid']);
+	$z->Excute($_SESSION['userid']);
+
+}
 else
-{if($value==1)
-	{
-		$y=new AvailabilityCommand();
-		$x=new AvailableNow($y,1,1);
-		$x->Excute();
-
-
-
-	}
-	else
-	{		$y=new AvailabilityCommand();
-		$x=new NotAvailableNow($y,1,1);
-		$x->Excute();
-
-	}
-
-
+{
+	$z= new NotAvailableNow($x,$_SESSION['userid']);
+	$z->Excute($_SESSION['userid']);
 }
-}
-
-
+echo "status changed succefully";
 

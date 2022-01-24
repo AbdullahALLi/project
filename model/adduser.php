@@ -1,9 +1,9 @@
 <?php
 include_once '../model/Database.php';
 class AddUser
-{ function InsertUser($password,$f_name,$l_name,$phonenumber,$email,$usertypeid,$salary)
+{ function InsertUser($password,$f_name,$l_name,$phonenumber,$email,$usertypeid,$salary,$adress,$date)
     {
-       $con = mysqli_connect("localhost", "root", "","project");
+       $con = mysqli_connect("localhost", "root", "","orphnew");
     
     if (!$con)
       {
@@ -15,17 +15,19 @@ class AddUser
 
       }
       */
-      $sql = "INSERT INTO user (password,f_name,l_name,phonenumber,email,usertypeid,salary) VALUES ('$password','$f_name','$l_name','$phonenumber','$email','$usertypeid','$salary')";
+      $sql = "INSERT INTO user(usertypeid,f_name,l_name,age,isdeleted, password, Email, phonenumber, adressid,Salary) VALUES ('$usertypeid','$f_name','$l_name','$date','0','$password','$email','$phonenumber','$adress','$salary')";
 
       if (mysqli_query($con, $sql))
       {
         echo'<script> alert ("user added")</script>';
-        header("Location:../view/manegerview.php");
+        header("Location:../index.php")
+        
       }
       else
       {
       echo'<script> alert ("error")</script>';
-      header("Location:../view/manegerview.php");
+      echo $password.$f_name."<br>".$l_name."<br>".$phonenumber."<br>".$email."<br>".$usertypeid.$salary."<br>".$adress."<br>".$date;
+    
       }
     }
           

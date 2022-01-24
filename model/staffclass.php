@@ -18,7 +18,7 @@ class staff extends user
  	 {
  	 	$this->f_name=$row["f_name"];
  	 	$this->id=$id;
- 	 	$this->email=$row["E-mail"];
+ 	 	$this->email=$row["Email"];
  	 	$this->password=$row["password"];
 		$this->l_name=$row["l_name"];
 		$this->age=$row["age"];
@@ -61,6 +61,17 @@ class staff extends user
 
 		
 
+
+}
+class hashpassword
+{function hashpasswords($password)
+	{ $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+		return $hashed_password;
+
+
+
+
+	}
 
 }
 

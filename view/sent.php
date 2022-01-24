@@ -1,16 +1,29 @@
 <?php
-include_once "../controller/loadpagecontroller.php";
+session_start();
+include_once "../model/page.php";
+
+include_once '../model/proxy.php';
+
+if(isset($_SESSION['type']))
+{
+	$x=new proxycheck();
+	$y=$x->check($_SESSION['usertype'],5);
+if($y==1)
+{include_once "../controller/loadpagecontroller.php";
+	$x=new page(5);
+
+$x->echohtml($x);
+}	
+else
+{  echo"you dont have permission to this page";
+
+}
+
+
+}
+	
+{
+	echo "you are not logged in";
+}
+
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Sent Messeges </title>
-</head>
-<body>
-
-<a href="../controller/multilingualcontroller.php"><button> Change Language </button></a>        
-
-</body>
-</html>

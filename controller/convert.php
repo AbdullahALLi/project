@@ -3,8 +3,7 @@ include_once("../model/functions.php");
 include_once("../model/createdonation.php");
 
 include_once("../model/createdondet.php");
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
+if(isset($_POST['convert'])) {
 	$from_currency = trim($_POST['from_currency']);
 	$to_currency = "EGP";
 	$amount = trim($_POST['amount']);	
@@ -13,15 +12,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		echo json_encode( $data );	
 		exit;
 	}
-	echo "jsd";
 	$converted_currency=currencyConverter($from_currency, $to_currency, $amount);
-	$z=returnthis($from_currency, $to_currency, $amount);
 	echo $converted_currency;
-	
+	$pay=$_SESSION['converted'];
+
+
 	$x=new Donationdetails();
 	$d=new DonationCreate();
 	$y=$d->returnid();
-	$x->updatepayment($z,$y);
-
+	$x->updatepayment($pay,$y);
 }
 ?>

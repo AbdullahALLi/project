@@ -6,7 +6,7 @@ class Database {
     private $server = "localhost";
     private $username = "root";
     private $password = "";
-    private $dbname = "project";
+    private $dbname = "orphnew";
 
     public function connectToDB()
     {
@@ -31,7 +31,7 @@ class  DbConnection {
     private $host="localhost";
     private $username="root";
     private $password="";
-    private $db_name="project"; 
+    private $db_name="orphnew"; 
     private  $database_connection; // 
     private static $instance;
 public  static $Counter=0;
@@ -61,7 +61,7 @@ public  static $Counter=0;
      private function database_connect($database_host, $database_username, $database_password) {
        
       if ($connection = mysqli_connect("localhost", "root", "")){
-             mysqli_select_db($connection,"project");
+             mysqli_select_db($connection,"orphnew");
             return $connection;
             
         } else {
@@ -87,7 +87,7 @@ for ($i=0;$i<100;$i++)
   {
   die('Could not connect: ' . mysql_error());
   }
-  mysqli_select_db($con,"project");
+  mysqli_select_db($con,"orphenw");
 
 }
 */
